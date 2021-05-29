@@ -31,11 +31,19 @@ async def on_message(message):
     n = randint(0, 4)
     await message.channel.send('Вы выиграли в кейсе - ' + nums[n])
 
+  elif message.content.startswith('!case'):
+    weapons = {"AWP Dragon Lore": 'https://i.imgur.com/RbPTpRl.jpeg'}
+    le = len(weapons)
+    i = randint(0, le)
+    weapon = weapons(i)
+    im = weapons.get(weapon)
+    await message.channel.send("You won: " + weapon)
+    await message.channel.send(im)
+
   elif message.content.startswith('!meme'): #random meme picture
     pics = ['https://i.imgur.com/Qpw6j8D.png', 'https://i.imgur.com/bCBt6ga.jpeg', 'https://i.imgur.com/8nLFCVP.png'] #ДОПОЛНЯЙ
     l = len(pics)
     ind = randint(0, l)
     await message.channel.send(pics[ind])
   
-
 client.run(os.getenv('TOKEN')) #token
