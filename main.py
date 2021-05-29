@@ -35,11 +35,12 @@ async def on_message(message):
     await message.channel.send("You noob!")
 
   elif message.content.startswith('!csgo'):
-    weapons = {"AWP Dragon Lore": 'https://i.imgur.com/RbPTpRl.jpeg'}
+    weapons = ["AWP Dragon Lore", "M4A4 Howl"]
+    images = ['https://i.imgur.com/RbPTpRl.jpeg', 'https://i.imgur.com/ZfN3zyE.jpg']
     le = len(weapons)
     i = randint(0, le)
-    weapon = weapons(i)
-    im = weapons.get(weapon)
+    weapon = weapons[i]
+    im = images[i]
     await message.channel.send("You won: " + weapon)
     await message.channel.send(im)
 
