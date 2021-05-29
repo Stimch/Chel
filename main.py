@@ -31,6 +31,9 @@ async def on_message(message):
     n = randint(0, 4)
     await message.channel.send('Вы выиграли в кейсе - ' + nums[n])
 
+  elif message.content.startswith('!rank'):
+    await message.channel.send("You noob!")
+
   elif message.content.startswith('!csgo'):
     weapons = {"AWP Dragon Lore": 'https://i.imgur.com/RbPTpRl.jpeg'}
     le = len(weapons)
