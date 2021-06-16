@@ -15,7 +15,7 @@ async def on_message(message):
     return
   
 
-  if message.content.startswith('!privet'): #greeting
+  if message.content.startswith('!hello'): #greeting
     await message.channel.send('Hello!')
 
   elif message.content.startswith('!iq'): #random iq
