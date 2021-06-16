@@ -43,15 +43,15 @@ async def on_message(message):
     im = images[i]
     iznos = 0.01 * randint(0, 101)
     if (iznos >= 0 and iznos <= 0.07):
-      stepen = "Factory New"
+      stepen = "(Factory New)"
     elif (iznos > 0.07 and iznos <= 0.15):
-      stepen = "Minimal Wear"
+      stepen = "(Minimal Wear)"
     elif (iznos > 0.15 and iznos <= 0.37):
-      stepen = "Field-Tested"
+      stepen = "(Field-Tested)"
     elif (iznos > 0.37 and iznos <= 0.44):
-      stepen = "Well-Worn"
+      stepen = "(Well-Worn)"
     elif (iznos > 0.44 and iznos <= 1):
-      stepen = "Battle-Scared"
+      stepen = "(Battle-Scared)"
     else:
       stepen = ""
     await message.channel.send("You won: " + weapon + " " + stepen)
