@@ -62,5 +62,38 @@ async def on_message(message):
     l = len(pics)
     ind = randint(0, l)
     await message.channel.send(pics[ind])
+
+  elif message.content.startswith('!game'): #rock-paper-scissors
+    await message.channel.send('What will you choose? Type !rock, !paper, !scissors')
+  elif message.content.startswith('!rock'):
+    variants = ['rock', 'paper', 'scissors']
+    num = randint(0, 2)
+    var = variants[num] 
+    if var == "rock":
+      await message.channel.send('Draw!')
+    elif var == "paper":
+      await message.channel.send('Lose!')
+    elif var == "scissors":
+      await message.channel.send('You won!')
+  elif message.content.startswith('!paper'):
+    variants = ['rock', 'paper', 'scissors']
+    num = randint(0, 2)
+    var = variants[num] 
+    if var == "rock":
+      await message.channel.send('You won!')
+    elif var == "paper":
+      await message.channel.send('Draw!')
+    elif var == "scissors":
+      await message.channel.send('Lose!')
+  elif message.content.startswith('!scissors'):
+    variants = ['rock', 'paper', 'scissors']
+    num = randint(0, 2)
+    var = variants[num] 
+    if var == "rock":
+      await message.channel.send('Lose!')
+    elif var == "paper":
+      await message.channel.send('You won!')
+    elif var == "scissors":
+      await message.channel.send('Draw!')
   
 client.run(os.getenv('TOKEN')) #token
