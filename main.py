@@ -37,6 +37,9 @@ async def on_message(message):
   elif message.content.startswith('!rank'):
     await message.channel.send("You noob!")
 
+  elif message.content.startswith('!com'):
+    await message.channel.send("Check text-channek named команды-бота")
+
   elif message.content.startswith('!csgo'):
     weapons = ["AWP Dragon Lore", "M4A4 Howl", "SG553 Perforated Waves", "Five-Seven Monkey business", "USP-S Kill Confirmed"]
     images = ['https://i.imgur.com/RbPTpRl.jpeg', 'https://i.imgur.com/ZfN3zyE.jpg', 'https://i.ytimg.com/vi/7WWbDAVICIU/maxresdefault.jpg', 'https://media.sketchfab.com/models/f1989dc2ff0b4f67a518e7ac46a53c22/thumbnails/d39aaf2f20f242c2a10d52678c649995/1024x576.jpeg', 'https://i.imgur.com/sodFYjd.png']
