@@ -17,6 +17,9 @@ async def on_message(message):
 
   if message.content.startswith('!hello'): #greeting
     await message.channel.send('Hello!')
+  
+  elif message.content.startswith('!otladka'):
+    await message.channel.send('Bip-Bup! I here!')
 
   elif message.content.startswith('!test'):
     await message.channel.send('Test passed!') #otladka
