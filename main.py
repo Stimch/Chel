@@ -1,6 +1,5 @@
 import os #import
 import discord #import
-from discord.ext import commands
 from random import randint #import
 
 client = discord.Client() #initialization
@@ -8,6 +7,7 @@ client = discord.Client() #initialization
 @client.event
 async def on_ready():
   print('We have logged in as {0.user}'.format(client))
+
 
 @client.event
 async def on_message(message):
@@ -17,6 +17,9 @@ async def on_message(message):
 
   if message.content.startswith('!hello'): #greeting
     await message.channel.send('Hello!')
+
+  elif message.content.startswith('!test'):
+    await message.channel.send('Test passed!') #otladka
 
   elif message.content.startswith('!iq'): #random iq
     intel = randint(1, 201)
