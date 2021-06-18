@@ -9,7 +9,7 @@ from random import randint #import
 
 client = commands.Bot(command_prefix='!') #!
 
-def get_quote():
+def get_quote(): #random quote
   response = requests.get("https://zenquotes.io/api/random")
   json_data = json.loads(response.text)
   quote = json_data[0]['q'] + " -" + json_data[0]['a']
