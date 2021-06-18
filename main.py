@@ -1,13 +1,23 @@
 import os #import
+import json
 import discord #import
+import requests
+from discord.ext import commands
 from random import randint #import
 
-client = discord.Client() #initialization
+# client = discord.Client() #initialization
+
+client = commands.Bot(command_prefix='!') #!
+
+def get_quote():
+  response = requests.get("https://zenquotes.io/api/random")
+  json_data = json.loads(response.text)
+  quote = json_data[0]['q'] + " -" + json_data[0]['a']
+  return(quote)
 
 @client.event
 async def on_ready():
   print('We have logged in as {0.user}'.format(client))
-
 
 @client.event
 async def on_message(message):
@@ -62,6 +72,10 @@ async def on_message(message):
     l = len(pics)
     ind = randint(0, l)
     await message.channel.send(pics[ind])
+
+  elif message.content.startswith('!quote'):
+    quote = get_quote()
+    await message.channel.send(quote)
 
   elif message.content.startswith('!game'): #rock-paper-scissors
     await message.channel.send('What will you choose? Type !rock, !paper, !scissors')
