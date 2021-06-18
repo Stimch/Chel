@@ -5,9 +5,9 @@ import requests
 from discord.ext import commands
 from random import randint #import
 
-# client = discord.Client() #initialization
+client = discord.Client() #initialization
 
-client = commands.Bot(command_prefix='!') #!
+# client = commands.Bot(command_prefix='!') #!
 
 def get_quote(): #random quote
   response = requests.get("https://zenquotes.io/api/random")
