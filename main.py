@@ -38,7 +38,7 @@ async def on_message(message):
     await message.channel.send("You noob!")
 
   elif message.content.startswith('!com'):
-    await message.channel.send("Check text-channek named команды-бота")
+    await message.channel.send("Check text-channel named команды-бота")
 
   elif message.content.startswith('!csgo'):
     weapons = ["AWP Dragon Lore", "M4A4 Howl", "SG553 Perforated Waves", "Five-Seven Monkey business", "USP-S Kill Confirmed"]
