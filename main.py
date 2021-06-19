@@ -16,7 +16,7 @@ async def hello(ctx):
     await ctx.send(f'{ctx.message.author.mention}, Hello!')
 
 @client.command()
-async def fix(ctx):
+async def fixed(ctx):
     await ctx.send(f'Fixed')
 
 @client.command()
