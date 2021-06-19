@@ -1,6 +1,7 @@
 import os #import
 import discord #import
 from discord.ext import commands
+import requests
 from random import randint #import
 
 # client = discord.Client() #initialization
@@ -41,6 +42,13 @@ async def case(ctx):
 @client.command()
 async def com(ctx):
     await ctx.send("Check text-channel named команды-бота")
+
+@client.command()
+async def weather(ctx, *, text):
+    Final_url = "http://api.openweathermap.org/data/2.5/weather?q=" + text + "&appid=adb18123a6d47788126882b3fd179b37"
+    r = requests.get(Final_url)
+    res = r.text
+    await ctx.send(res)
 
 @client.command()
 async def csgo(ctx):
