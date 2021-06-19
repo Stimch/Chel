@@ -20,6 +20,10 @@ async def fixed(ctx):
     await ctx.send(f'Fixed')
 
 @client.command()
+async def helper(ctx):
+    await ctx.send(f'Developer page - https://vk.com/stimch')
+
+@client.command()
 async def iq(ctx):
     intel = randint(1, 201)
     await ctx.send('Your iq = ' + str(intel))
