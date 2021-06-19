@@ -1,4 +1,5 @@
 import os #import
+import requests
 import discord #import
 from discord.ext import commands
 from random import randint #import
@@ -92,5 +93,11 @@ async def game(ctx, *, text):
       await ctx.send('you won!')
     elif var == "scissors" and text == "scissors":
       await ctx.send('Draw!')
+
+@client.command()
+async def weather(ctx, *, text):
+    Final_url = "http://api.openweathermap.org/data/2.5/weather?q=" + text + "&appid=adb18123a6d47788126882b3fd179b37"
+    weather_data = requests.get(Final_url).json()
+    await ctx.send(weather_data)
   
 client.run(os.getenv('TOKEN')) #token
