@@ -16,12 +16,12 @@ async def hello(ctx):
     await ctx.send(f'{ctx.message.author.mention}, Hello!')
 
 @client.command()
-async def fixed(ctx):
+async def fix(ctx):
     await ctx.send(f'Fixed')
 
 @client.command()
-async def helper(ctx):
-    await ctx.send(f'Developer page - https://vk.com/stimch')
+async def developer(ctx):
+    await ctx.send("Developer's mail - ageykinegor@mail.ru")
 
 @client.command()
 async def iq(ctx):
