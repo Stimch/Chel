@@ -1,49 +1,45 @@
 import os #import
 import discord #import
+from discord.ext import commands
 from random import randint #import
 
-client = discord.Client() #initialization
+# client = discord.Client() #initialization
+client = discord.ext.commands.Bot(command_prefix = "!")
 
 @client.event
 async def on_ready():
   print('We have logged in as {0.user}'.format(client)) #console
 
+@client.command()
+async def hello(ctx):
+    await ctx.send(f'{ctx.message.author.mention}, Hello!')
 
-@client.event
-async def on_message(message):
-  if message.author == client.user:
-    return
-  
+@client.command()
+async def fix(ctx):
+    await ctx.send(f'Fixed')
 
-  if message.content.startswith('!hello'): #greeting
-    await message.channel.send('Hello!')
-  
-  elif message.content.startswith('!otladka'): #new otladka
-    await message.channel.send('Bip-Bup! I here!')
-
-  elif message.content.startswith('!test'):
-    await message.channel.send('Test passed!') #otladka
-
-  elif message.content.startswith('!iq'): #random iq
+@client.command()
+async def iq(ctx):
     intel = randint(1, 201)
-    await message.channel.send('Your iq = ' + str(intel))
+    await ctx.send('Your iq = ' + str(intel))
 
-  elif message.content.startswith('!age'): #random age
-    age = randint(1, 501)
-    await message.channel.send('Your age = ' + str(age))
+@client.command()
+async def age(ctx):
+    intel = randint(1, 501)
+    await ctx.send('Your age = ' + str(intel))
 
-  elif message.content.startswith('!case'): #case
+@client.command()
+async def case(ctx):
     nums = ['Nothing', '$1', '$2000', '$300', '$100']
     n = randint(0, 4)
-    await message.channel.send('You won - ' + nums[n])
+    await ctx.send('You won - ' + nums[n])
 
-  elif message.content.startswith('!rank'):
-    await message.channel.send("You noob!")
+@client.command()
+async def com(ctx):
+    await ctx.send("Check text-channel named команды-бота")
 
-  elif message.content.startswith('!com'):
-    await message.channel.send("Check text-channel named команды-бота")
-
-  elif message.content.startswith('!csgo'):
+@client.command()
+async def csgo(ctx):
     weapons = ["AWP Dragon Lore", "M4A4 Howl", "SG553 Perforated Waves", "Five-Seven Monkey business", "USP-S Kill Confirmed"]
     images = ['https://i.imgur.com/RbPTpRl.jpeg', 'https://i.imgur.com/ZfN3zyE.jpg', 'https://i.ytimg.com/vi/7WWbDAVICIU/maxresdefault.jpg', 'https://media.sketchfab.com/models/f1989dc2ff0b4f67a518e7ac46a53c22/thumbnails/d39aaf2f20f242c2a10d52678c649995/1024x576.jpeg', 'https://i.imgur.com/sodFYjd.png']
     le = len(weapons)
@@ -63,46 +59,38 @@ async def on_message(message):
       stepen = "(Battle-Scared)"
     else:
       stepen = ""
-    await message.channel.send("You won: " + weapon + " " + stepen)
-    await message.channel.send(im)
+    await ctx.send("You won: " + weapon + " " + stepen)
+    await ctx.send(im)
 
-  elif message.content.startswith('!meme'): #random meme picture
+@client.command()
+async def meme(ctx):
     pics = ['https://i.imgur.com/Qpw6j8D.png', 'https://i.imgur.com/bCBt6ga.jpeg', 'https://i.imgur.com/8nLFCVP.png'] #ДОПОЛНЯЙ
     l = len(pics)
     ind = randint(0, l)
-    await message.channel.send(pics[ind])
+    await ctx.send(pics[ind])
 
-  elif message.content.startswith('!game'): #rock-paper-scissors
-    await message.channel.send('What will you choose? Type !rock, !paper, !scissors')
-  elif message.content.startswith('!rock'):
+@client.command()
+async def game(ctx, *, text):
     variants = ['rock', 'paper', 'scissors']
     num = randint(0, 2)
     var = variants[num] 
-    if var == "rock":
-      await message.channel.send('Draw!')
-    elif var == "paper":
-      await message.channel.send('Lose!')
-    elif var == "scissors":
-      await message.channel.send('You won!')
-  elif message.content.startswith('!paper'):
-    variants = ['rock', 'paper', 'scissors']
-    num = randint(0, 2)
-    var = variants[num] 
-    if var == "rock":
-      await message.channel.send('You won!')
-    elif var == "paper":
-      await message.channel.send('Draw!')
-    elif var == "scissors":
-      await message.channel.send('Lose!')
-  elif message.content.startswith('!scissors'):
-    variants = ['rock', 'paper', 'scissors']
-    num = randint(0, 2)
-    var = variants[num] 
-    if var == "rock":
-      await message.channel.send('Lose!')
-    elif var == "paper":
-      await message.channel.send('You won!')
-    elif var == "scissors":
-      await message.channel.send('Draw!')
+    if var == "rock" and text == "rock":
+      await ctx.send('Draw!')
+    elif var == "paper" and text == "rock":
+      await ctx.send('Lose!')
+    elif var == "scissors" and text == "rock":
+      await ctx.send('You won!')
+    elif var == "rock" and text == "paper":
+      await ctx.send('You won!')
+    elif var == "scissors" and text == "paper":
+      await ctx.send('Lose!')
+    elif var == "paper" and text == "paper":
+      await ctx.send('Draw!')
+    elif var == "scissors" and text == "scissors":
+      await ctx.send('Draw!')
+    elif var == "paper" and text == "scissors":
+      await ctx.send('you won!')
+    elif var == "scissors" and text == "scissors":
+      await ctx.send('Draw!')
   
 client.run(os.getenv('TOKEN')) #token
