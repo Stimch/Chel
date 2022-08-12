@@ -47,7 +47,7 @@ async def com(ctx):
     
 @client.command()
 async def heroku(ctx):
-    await ctx.send("Бот сделан на Хероку")
+    await ctx.send("Ботik сделан на Хероку")
 
 @client.command()
 async def csgo(ctx):
