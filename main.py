@@ -23,6 +23,10 @@ async def developer(ctx):
     await ctx.send("ageykinegor@mail.ru")
 
 @client.command()
+async def Edush(ctx):
+    await ctx.send("Edush gay")
+
+@client.command()
 async def iq(ctx):
     intel = randint(1, 201)
     await ctx.send('Your iq = ' + str(intel))
