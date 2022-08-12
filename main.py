@@ -101,12 +101,12 @@ async def game(ctx, *, text):
       await ctx.send('Draw!')
 
 @client.command()
-async def add(ctx, *, text):
+async def addon(ctx, *, text):
     gamers.append(text)
     await ctx.send('Добавлен: ' + str(text))
 
 @client.command()
-async def clear(ctx, *, text):
+async def clearon(ctx, *, text):
     gamers = []
 
 @client.command()
