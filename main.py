@@ -44,6 +44,10 @@ async def case(ctx):
 @client.command()
 async def com(ctx):
     await ctx.send("Check text-channel named команды-бота")
+    
+@client.command()
+async def heroku(ctx):
+    await ctx.send("Бот сделан на Хероку")
 
 @client.command()
 async def csgo(ctx):
