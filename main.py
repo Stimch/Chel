@@ -1,7 +1,6 @@
 import os #import
 import discord #import
 from discord.ext import commands
-import random
 from random import randint #import
 
 # client = discord.Client() #initialization
@@ -18,8 +17,6 @@ async def hello(ctx):
 @client.command()
 async def fix(ctx):
     await ctx.send(f'Fixed')
-
-gamers = []
 
 @client.command()
 async def developer(ctx):
@@ -44,10 +41,10 @@ async def case(ctx):
 @client.command()
 async def com(ctx):
     await ctx.send("Check text-channel named команды-бота")
-    
+
 @client.command()
 async def heroku(ctx):
-    await ctx.send("Ботik сделан на Хероку")
+    await ctx.send("Botik made on Heroku! XD")
 
 @client.command()
 async def csgo(ctx):
@@ -103,25 +100,5 @@ async def game(ctx, *, text):
       await ctx.send('you won!')
     elif var == "scissors" and text == "scissors":
       await ctx.send('Draw!')
-
-@client.command()
-async def addon(ctx, *, text):
-    gamers.append(text)
-    await ctx.send('Добавлен: ' + str(text))
-
-@client.command()
-async def clearon(ctx, *, text):
-    gamers = []
-
-@client.command()
-async def pubg(ctx):
-    random.shuffle(gamers)
-    pairs = len(gamers) / 2
-    for i in range(1, pairs + 1):
-      await ctx.send('Pair ' + str(i) + ':' + ' ' + gamers[i] + ' ' + gamers[i + 1])
-      gamers.remove(gamers[i])
-      gamers.remove(gamers[i+1])
-      continue
-
   
 client.run(os.getenv('TOKEN')) #token
