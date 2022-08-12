@@ -1,6 +1,7 @@
 import os #import
 import discord #import
 from discord.ext import commands
+import random
 from random import randint #import
 
 # client = discord.Client() #initialization
@@ -13,6 +14,8 @@ async def on_ready():
 @client.command()
 async def hello(ctx):
     await ctx.send(f'{ctx.message.author.mention}, Hello!')
+
+gamers = []
 
 @client.command()
 async def fix(ctx):
@@ -104,5 +107,34 @@ async def game(ctx, *, text):
       await ctx.send('you won!')
     elif var == "scissors" and text == "scissors":
       await ctx.send('Draw!')
+
+@client.command()
+async def addon(ctx, *, text):
+  gamers.append(text)
+  await ctx.send("Добавлен: " + text)
+
+@client.command()
+async def clearon(ctx):
+  dlina = len(gamers)
+  for i in range(dlina):
+    gamers[i] = ""
+  await ctx.send("Список очищен!")
+
+@client.command()
+async def spisok(ctx):
+  await ctx.send(gamers)
+
+@client.command()
+async def pubg(ctx):
+  igroki = []
+  for el in gamers:
+    if len(el) > 2:
+      igroki.append(el)
+  random.shuffle(igroki)
+  await ctx.send(igroki)
+  pairs = len(igroki) // 2
+  for i in range(1, pairs + 1):
+    soob = "Пара " + str(i) + ": " + igroki[i] + ' и ' + igroki[i+1]
+    await ctx.send(soob)
   
 client.run(os.getenv('TOKEN')) #token
